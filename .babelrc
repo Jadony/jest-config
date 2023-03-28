@@ -1,0 +1,22 @@
+// 为了在 node 环境下使用 es6 的导出，需要使用 babel 进行转换
+{
+  // 设置插件集合
+  "presets": [
+    // 使用当前插件，可以进行转换
+    // 数组的第二项为插件的配置项
+    [
+      "@babel/preset-env", {
+        // 根据 node 的版本号来结合插件对代码进行转换
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ]
+}
+
+// npm run jest
+// jest  (babel-jest)  检测当前环境是否安装了babel
+// 如果安装了则会去 babelrc 中取配置
+// 取到后执行代码转换
+// 最后再执行转化过的测试用例代码
